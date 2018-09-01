@@ -1,0 +1,40 @@
+Tarantula\Domain\Link\Model\Link:
+    attributes:
+        pagination_enabled: false
+    collectionOperations:
+        get:
+            method: 'GET'
+            path: '/links.{_format}'
+            controller: 'Tarantula\Infrastructure\Controller\GetLinks'
+            swagger_context:
+                parameters:
+                    -
+                        in: 'query'
+                        name: 'url'
+                        required: true
+                        type: 'string'
+                    -
+                        in: 'query'
+                        name: 'depth'
+                        required: true
+                        type: 'integer'
+                responses:
+                    200:
+                        description: 'Link collection response'
+                        schema:
+                            type: 'array'
+                            items:
+                                type: 'object'
+                                title: 'Link'
+                                properties:
+                                    id:
+                                        type: 'string'
+                                    url:
+                                        type: 'string'
+                                    headers:
+                                        type: 'array'
+                                        items:
+                                            type: 'string'
+                    400:
+                        description: 'Invalid input'
+    itemOperations: []

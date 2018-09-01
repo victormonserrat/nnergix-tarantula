@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="Tarantula\Domain\Link\Model\Link" table="link">
+        <id name="id" column="id" type="link_id" />
+        <field name="url" column="url" type="link_url" />
+        <field name="headers" column="headers" type="json_array" nullable="true" />
+    </entity>
+</doctrine-mapping>

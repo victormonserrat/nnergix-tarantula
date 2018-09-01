@@ -1,0 +1,27 @@
+language: php
+
+sudo: false
+
+env:
+    global:
+        - APP_ENV=test
+        - APP_SECRET=5f49da2775cbd91f9d81034d22146cb3
+
+matrix:
+    include:
+        - php: 7.2
+
+cache:
+    directories:
+        - ~/.composer/cache/files
+
+install:
+    - composer install
+
+script:
+    - composer validate --strict
+    - vendor/bin/ecs check src spec --ansi --no-interaction --verbose
+    - vendor/bin/phpspec run --ansi --no-interaction --verbose
+
+after_success:
+    - travis_retry vendor/bin/php-coveralls --ansi --no-interaction --verbose

@@ -1,0 +1,11 @@
+header #logo img {
+  background-color:rgba(0,0,0,0);
+}
+
+.information-container {
+  display:none;
+}
+
+.models {
+  display:none !important;
+}

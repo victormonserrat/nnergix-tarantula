@@ -1,0 +1,91 @@
+{
+    "name": "nnergix/tarantula",
+    "type": "project",
+    "description": "Nnergix web crawler",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Victor Monserrat",
+            "email": "victormonserratvillatoro@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "ext-json": "^1.6",
+        "api-platform/api-pack": "^1.2",
+        "doctrine/doctrine-migrations-bundle": "^2.0",
+        "fabpot/goutte": "^3.2",
+        "ramsey/uuid": "^3.8",
+        "symfony/console": "*",
+        "symfony/dom-crawler": "*",
+        "symfony/dotenv": "*",
+        "symfony/flex": "^1.1",
+        "symfony/framework-bundle": "*",
+        "symfony/messenger": "*",
+        "symfony/yaml": "*"
+    },
+    "require-dev": {
+        "leanphp/phpspec-code-coverage": "^4.2",
+        "php-coveralls/php-coveralls": "^2.1",
+        "phpspec/phpspec": "^4.2",
+        "sylius-labs/coding-standard": "^3.0",
+        "symfony/debug-pack": "^1.0",
+        "symfony/maker-bundle": "^1.11",
+        "symfony/web-server-bundle": "*",
+        "symplify/easy-coding-standard": "5.3"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Tarantula\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tarantula\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "paragonie/random_compat": "2.*",
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php71": "*",
+        "symfony/polyfill-php70": "*",
+        "symfony/polyfill-php56": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "behat": "vendor/bin/behat --colors",
+        "cs:check": "vendor/bin/ecs check src spec --ansi",
+        "cs:fix": "vendor/bin/ecs check src spec --fix --ansi",
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ],
+        "spec": "vendor/bin/phpspec run --ansi",
+        "test": [
+            "@spec"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "4.2.*"
+        }
+    }
+}

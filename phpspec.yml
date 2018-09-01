@@ -1,0 +1,25 @@
+formatter.name: 'pretty'
+
+suites:
+    default:
+        namespace: 'Tarantula'
+        psr4_prefix: 'Tarantula'
+
+extensions:
+    LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+        format:
+            - 'clover'
+            - 'html'
+        output:
+            clover: 'build/logs/clover-phpspec.xml'
+            html: 'build/coverage-phpspec'
+        whitelist:
+            - 'src'
+        blacklist:
+            - 'src/Application/Command'
+            - 'src/Application/Repository/Links.php'
+            - 'src/Domain/Link/Exception'
+            - 'src/Infrastructure/Controller'
+            - 'src/Infrastructure/Doctrine'
+            - 'src/Infrastructure/Migrations'
+            - 'src/Infrastructure/Kernel.php'

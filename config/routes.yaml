@@ -1,0 +1,3 @@
+#index:
+#    path: /
+#    controller: Tarantula\Infrastructure\Controller\DefaultController::index
